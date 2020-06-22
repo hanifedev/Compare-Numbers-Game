@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     private ResultManager resultManager;
 
+    private AdmobManager admobManager;
+
     private AudioSource audioSource;
 
     int gameCount, gameCounter;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
     {
         timerManager = Object.FindObjectOfType<TimerManager>();
         circlesManager = Object.FindObjectOfType<CirclesManager>();
+        admobManager = Object.FindObjectOfType<AdmobManager>();
         trueFalseManager = Object.FindObjectOfType<TrueFalseManager>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
         selectMaxNumberImage.GetComponent<CanvasGroup>().DOFade(1, .2f);
         checkGameCount();
         timerManager.startTimer();
+        admobManager.showBanner();
     }
 
     //oyunun kaçıncı oyun olduğunu kontrol eden fonksiyon
